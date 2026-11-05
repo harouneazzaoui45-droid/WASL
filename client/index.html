@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1f3a">
+  <title>WASL Client | وصل</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+    body{background:#f2f6fc;color:#14243a;min-height:100vh}
+    header{background:linear-gradient(135deg,#071b35,#1264c5);color:white;padding:28px 20px 35px;border-radius:0 0 28px 28px}
+    .logo{font-size:29px;font-weight:bold}
+    .logo span{color:#65c5ff}
+    header p{margin-top:10px;color:#dcecff;line-height:1.8}
+    main{max-width:600px;margin:-14px auto 0;padding:0 16px 30px}
+    .welcome,.service,.account{background:white;border-radius:18px;padding:20px;box-shadow:0 7px 24px #102b4d10}
+    .welcome h2{color:#0d4c8d;margin-bottom:9px}
+    .welcome p{color:#718096;line-height:1.8}
+    .title{margin:24px 4px 13px;font-size:19px}
+    .service{margin-bottom:12px;display:flex;align-items:center;gap:14px}
+    .icon{width:48px;height:48px;border-radius:14px;background:#e8f3ff;display:grid;place-items:center;font-size:23px}
+    .service h3{font-size:16px;margin-bottom:5px}
+    .service p{font-size:13px;color:#7b8798}
+    .account{text-align:center;margin-top:20px}
+    .account button{border:0;background:#1264c5;color:white;padding:13px 24px;border-radius:12px;font-size:15px;margin-top:14px}
+    footer{text-align:center;color:#8794a5;font-size:12px;padding:22px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">WASL <span>وصل</span></div>
+    <p>فضاء الزبون — كل ما تحتاجه في مكان واحد.</p>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <h2>مرحبًا بك في وصل</h2>
+      <p>اكتشف خدمات المنصة وتابع طلباتك بسهولة من خلال فضاء الزبون.</p>
+    </section>
+
+    <h2 class="title">خدماتك</h2>
+
+    <section>
+      <div class="service">
+        <div class="icon">🔎</div>
+        <div><h3>استكشاف الخدمات</h3><p>تعرّف على الخدمات المتاحة في المنصة.</p></div>
+      </div>
+      <div class="service">
+        <div class="icon">📋</div>
+        <div><h3>طلباتي</h3><p>متابعة الطلبات الخاصة بك.</p></div>
+      </div>
+      <div class="service">
+        <div class="icon">🔔</div>
+        <div><h3>الإشعارات</h3><p>متابعة آخر التحديثات والتنبيهات.</p></div>
+      </div>
+    </section>
+
+    <section class="account">
+      <h3>حسابك في وصل</h3>
+      <p style="color:#718096;margin-top:8px">سيتم تفعيل التسجيل والدخول في مرحلة ربط النظام.</p>
+      <button type="button" onclick="alert('سيتم تفعيل هذه الخدمة لاحقًا')">قريبًا</button>
+    </section>
+  </main>
+
+  <footer>WASL Client © 2026</footer>
+</body>
+</html>
