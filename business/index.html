@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>WASL | بوابة المؤسسات</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;background:#101827;color:#fff;font-family:Arial,sans-serif;min-height:100vh}
+    header{padding:24px 20px;border-bottom:1px solid #29364b}
+    .logo{font-size:29px;font-weight:bold;color:#55d6be;letter-spacing:2px}
+    .sub{color:#aab7c9;margin-top:8px}
+    main{max-width:850px;margin:35px auto;padding:20px}
+    .panel{background:#19263a;border:1px solid #30415a;border-radius:18px;padding:25px;margin-bottom:20px}
+    h1{font-size:25px;margin-top:0}
+    p{color:#bdc9d9;line-height:1.8}
+    label{display:block;margin:16px 0 8px;color:#dce6f2}
+    input,select,textarea{width:100%;padding:14px;border:1px solid #40516a;border-radius:10px;background:#101827;color:white;font-size:16px}
+    textarea{min-height:100px;resize:vertical}
+    button{width:100%;padding:15px;margin-top:20px;border:0;border-radius:10px;background:#55d6be;color:#102331;font-size:17px;font-weight:bold;cursor:pointer}
+    .note{font-size:13px;color:#92a3b9;margin-top:15px}
+    footer{text-align:center;color:#718198;padding:25px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">WASL | وصل</div>
+    <div class="sub">منصة واحدة تجمع العملاء والمؤسسات والخدمات</div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h1>بوابة المؤسسات</h1>
+      <p>مرحبًا بك في فضاء المؤسسات. يمكنك تقديم معلومات مؤسستك وطلب الانضمام إلى شبكة وصل.</p>
+    </section>
+
+    <section class="panel">
+      <h2>تسجيل المؤسسة</h2>
+      <form id="businessForm">
+        <label for="company">اسم المؤسسة</label>
+        <input id="company" name="company" required placeholder="أدخل اسم المؤسسة">
+
+        <label for="manager">اسم المسؤول</label>
+        <input id="manager" name="manager" required placeholder="اسم المسؤول">
+
+        <label for="phone">رقم الهاتف</label>
+        <input id="phone" name="phone" type="tel" required placeholder="رقم التواصل">
+
+        <label for="email">البريد الإلكتروني</label>
+        <input id="email" name="email" type="email" placeholder="example@email.com">
+
+        <label for="activity">نوع النشاط</label>
+        <select id="activity" name="activity" required>
+          <option value="">اختر النشاط</option>
+          <option>تجارة</option>
+          <option>خدمات</option>
+          <option>صناعة</option>
+          <option>نقل وتوصيل</option>
+          <option>مطاعم ومقاهي</option>
+          <option>نشاط آخر</option>
+        </select>
+
+        <label for="address">عنوان المؤسسة</label>
+        <input id="address" name="address" required placeholder="المدينة والعنوان">
+
+        <label for="details">نبذة عن المؤسسة</label>
+        <textarea id="details" name="details" placeholder="اكتب معلومات مختصرة عن نشاطك"></textarea>
+
+        <button type="submit">إرسال طلب الانضمام</button>
+        <p class="note">هذه واجهة أولية؛ إرسال الطلب وحفظ البيانات يتطلب ربط قاعدة بيانات وخادمًا في مرحلة لاحقة.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer>WASL © 2026 — وصل يجمعنا</footer>
+
+  <script>
+    document.getElementById("businessForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      alert("تم التحقق من البيانات بنجاح. سيتم تفعيل إرسال الطلب عند ربط النظام بالخادم.");
+    });
+  </script>
+</body>
+</html>
