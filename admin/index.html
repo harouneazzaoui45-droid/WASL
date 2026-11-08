@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>WASL | لوحة الإدارة</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;background:#101827;color:#fff;font-family:Arial,sans-serif}
+    header{padding:24px 20px;border-bottom:1px solid #29364b}
+    .logo{font-size:29px;font-weight:bold;color:#55d6be}
+    .sub{color:#aab7c9;margin-top:8px}
+    main{max-width:900px;margin:35px auto;padding:20px}
+    .panel{background:#19263a;border:1px solid #30415a;border-radius:18px;padding:24px;margin-bottom:20px}
+    h1{font-size:25px}
+    p{color:#bdc9d9;line-height:1.8}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:15px}
+    .stat{background:#101827;border:1px solid #30415a;border-radius:13px;padding:20px}
+    .stat span{display:block;color:#9eafc4;margin-bottom:12px}
+    .stat strong{font-size:25px;color:#55d6be}
+    label{display:block;margin:15px 0 8px}
+    input,select{width:100%;padding:13px;border:1px solid #40516a;border-radius:10px;background:#101827;color:white;font-size:16px}
+    button{padding:14px 20px;border:0;border-radius:10px;background:#55d6be;color:#102331;font-size:16px;font-weight:bold;cursor:pointer;margin-top:18px}
+    .notice{font-size:13px;color:#92a3b9}
+    footer{text-align:center;color:#718198;padding:25px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">WASL | وصل</div>
+    <div class="sub">لوحة التحكم والإدارة المركزية</div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h1>مرحبًا بك في لوحة الإدارة</h1>
+      <p>فضاء مخصص لإدارة منصة وصل ومتابعة المؤسسات والعملاء والطلبات.</p>
+    </section>
+
+    <section class="panel">
+      <h2>ملخص المنصة</h2>
+      <div class="grid">
+        <div class="stat"><span>عدد العملاء</span><strong>—</strong></div>
+        <div class="stat"><span>عدد المؤسسات</span><strong>—</strong></div>
+        <div class="stat"><span>الطلبات الجديدة</span><strong>—</strong></div>
+      </div>
+      <p class="notice">ستظهر الإحصائيات الفعلية بعد ربط قاعدة البيانات.</p>
+    </section>
+
+    <section class="panel">
+      <h2>إعدادات الإدارة</h2>
+      <label for="adminName">اسم المسؤول</label>
+      <input id="adminName" placeholder="اسم مدير المنصة">
+
+      <label for="adminEmail">البريد الإلكتروني</label>
+      <input id="adminEmail" type="email" placeholder="البريد الإلكتروني">
+
+      <label for="status">حالة المنصة</label>
+      <select id="status">
+        <option>قيد الإعداد</option>
+        <option>نشطة</option>
+        <option>متوقفة مؤقتًا</option>
+      </select>
+
+      <button type="button" onclick="alert('هذه واجهة تجريبية. سيتم تفعيل حفظ الإعدادات عند ربط قاعدة البيانات.')">حفظ الإعدادات</button>
+    </section>
+
+    <section class="panel">
+      <h2>أقسام الإدارة</h2>
+      <p>• إدارة حسابات العملاء</p>
+      <p>• إدارة المؤسسات وطلبات الانضمام</p>
+      <p>• متابعة الخدمات والطلبات</p>
+      <p>• إعدادات المنصة والصلاحيات</p>
+    </section>
+  </main>
+
+  <footer>WASL © 2026 — لوحة الإدارة</footer>
+</body>
+</html>
