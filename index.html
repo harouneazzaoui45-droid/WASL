@@ -2,144 +2,66 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101827">
-  <title>WASL | وصل</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #101827;
-      color: white;
-      min-height: 100vh;
-    }
-
-    header {
-      padding: 30px 20px;
-      text-align: center;
-      background: #172438;
-      border-bottom: 1px solid #30415a;
-    }
-
-    .logo {
-      font-size: 38px;
-      font-weight: bold;
-      color: #d6b56d;
-      letter-spacing: 3px;
-    }
-
-    header p {
-      color: #aab7c9;
-      margin-top: 10px;
-    }
-
-    main {
-      max-width: 850px;
-      margin: 45px auto;
-      padding: 20px;
-    }
-
-    .welcome {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .welcome h1 {
-      font-size: 27px;
-      margin-bottom: 12px;
-    }
-
-    .welcome p {
-      color: #aab7c9;
-      line-height: 1.8;
-    }
-
-    .portals {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
-
-    .portal {
-      background: #1c2b40;
-      border: 1px solid #344861;
-      border-radius: 16px;
-      padding: 28px 18px;
-      text-align: center;
-      transition: .2s;
-    }
-
-    .portal:hover {
-      border-color: #d6b56d;
-      transform: translateY(-4px);
-    }
-
-    .portal .icon {
-      font-size: 38px;
-      margin-bottom: 15px;
-    }
-
-    .portal h2 {
-      color: #d6b56d;
-      font-size: 21px;
-      margin-bottom: 12px;
-    }
-
-    .portal p {
-      color: #b7c2d0;
-      line-height: 1.7;
-      font-size: 14px;
-    }
-
-    footer {
-      text-align: center;
-      color: #8493a8;
-      padding: 30px 15px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<title>WASL | وصل</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#101827;color:#fff;min-height:100vh}
+header{text-align:center;padding:38px 20px;background:#172438;border-bottom:1px solid #30415a}
+.logo{font-size:42px;font-weight:bold;color:#d6b56d;letter-spacing:4px}
+header p{color:#aab7c9;margin-top:12px}
+main{max-width:1000px;margin:55px auto;padding:20px}
+.welcome{text-align:center;margin-bottom:40px}
+.welcome h1{font-size:29px;margin-bottom:15px}
+.welcome p{color:#aab7c9;line-height:1.9}
+.portals{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.portal{display:block;text-decoration:none;color:white;background:#1c2b40;border:1px solid #344861;border-radius:18px;padding:32px 20px;text-align:center;transition:.2s}
+.portal:hover{border-color:#d6b56d;transform:translateY(-5px)}
+.icon{font-size:43px;margin-bottom:18px}
+.portal h2{color:#d6b56d;font-size:22px;margin-bottom:13px}
+.portal p{color:#b7c2d0;line-height:1.8;font-size:14px}
+.enter{display:inline-block;margin-top:22px;padding:11px 24px;border-radius:9px;background:#d6b56d;color:#172438;font-weight:bold}
+footer{text-align:center;color:#8493a8;padding:35px 15px}
+</style>
 </head>
-
 <body>
-  <header>
-    <div class="logo">WASL</div>
-    <p>منصة وصل للخدمات المتكاملة</p>
-  </header>
+<header>
+<div class="logo">WASL</div>
+<p>منصة وصل للخدمات المتكاملة</p>
+</header>
 
-  <main>
-    <section class="welcome">
-      <h1>مرحباً بك في وصل</h1>
-      <p>منصة واحدة تجمع الخدمات في تجربة رقمية موحدة.</p>
-    </section>
+<main>
+<section class="welcome">
+<h1>مرحباً بك في وصل</h1>
+<p>منصة رقمية موحدة تربط العملاء بالمؤسسات وتوفر إدارة متكاملة للخدمات.</p>
+</section>
 
-    <section class="portals">
-      <div class="portal">
-        <div class="icon">👤</div>
-        <h2>بوابة العملاء</h2>
-        <p>الوصول إلى الخدمات ومتابعة الطلبات.</p>
-      </div>
+<section class="portals">
+<a class="portal" href="client/index.html">
+<div class="icon">👤</div>
+<h2>بوابة العملاء</h2>
+<p>اكتشف الخدمات، تواصل مع المؤسسات وتابع طلباتك.</p>
+<span class="enter">الدخول إلى البوابة</span>
+</a>
 
-      <div class="portal">
-        <div class="icon">🏢</div>
-        <h2>بوابة المؤسسات</h2>
-        <p>إدارة المؤسسات والخدمات والطلبات.</p>
-      </div>
+<a class="portal" href="business/index.html">
+<div class="icon">🏢</div>
+<h2>بوابة المؤسسات</h2>
+<p>انضم إلى شبكة وصل وقدّم خدمات مؤسستك.</p>
+<span class="enter">الدخول إلى البوابة</span>
+</a>
 
-      <div class="portal">
-        <div class="icon">⚙️</div>
-        <h2>بوابة الإدارة</h2>
-        <p>إدارة المنصة والتحكم في الصلاحيات.</p>
-      </div>
-    </section>
-  </main>
+<a class="portal" href="admin/index.html">
+<div class="icon">⚙️</div>
+<h2>بوابة الإدارة</h2>
+<p>إدارة المنصة ومتابعة العملاء والمؤسسات والطلبات.</p>
+<span class="enter">الدخول إلى البوابة</span>
+</a>
+</section>
+</main>
 
-  <footer>
-    WASL © 2026 - جميع الحقوق محفوظة
-  </footer>
+<footer>WASL © 2026 - جميع الحقوق محفوظة</footer>
 </body>
 </html>
