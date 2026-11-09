@@ -1,0 +1,170 @@
+
+name: Build WASL APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download repository
+        uses: actions/checkout@v4
+
+      - name: Install Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v3
+        with:
+          gradle-version: '8.9'
+
+      - name: Prepare Android project
+        run: |
+          mkdir -p app/src/main/java/dz/startlink/wasl
+          mkdir -p app/src/main/assets/www
+
+          cp index.html app/src/main/assets/www/
+          cp app.js app/src/main/assets/www/
+
+          cp -R client app/src/main/assets/www/
+          cp -R business app/src/main/assets/www/
+          cp -R admin app/src/main/assets/www/
+
+          cat > settings.gradle <<'EOF'
+          pluginManagement {
+              repositories {
+                  google()
+                  mavenCentral()
+                  gradlePluginPortal()
+              }
+          }
+          dependencyResolutionManagement {
+              repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+          }
+          rootProject.name = "WASL"
+          include ':app'
+          EOF
+
+          cat > build.gradle <<'EOF'
+          plugins {
+              id 'com.android.application' version '8.7.3' apply false
+          }
+          EOF
+
+          cat > app/build.gradle <<'EOF'
+          plugins {
+              id 'com.android.application'
+          }
+
+          android {
+              namespace 'dz.startlink.wasl'
+              compileSdk 35
+
+              defaultConfig {
+                  applicationId 'dz.startlink.wasl'
+                  minSdk 23
+                  targetSdk 28
+                  versionCode 1
+                  versionName '1.0'
+              }
+          }
+
+          dependencies {
+              implementation 'androidx.webkit:webkit:1.12.1'
+          }
+          EOF
+
+          cat > app/src/main/AndroidManifest.xml <<'EOF'
+          <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+              <uses-permission android:name="android.permission.INTERNET"/>
+              <application
+                  android:theme="@android:style/Theme.Material.Light.NoActionBar"
+                  android:label="WASL"
+                  android:usesCleartextTraffic="true">
+                  <activity
+                      android:name=".MainActivity"
+                      android:exported="true">
+                      <intent-filter>
+                          <action android:name="android.intent.action.MAIN"/>
+                          <category android:name="android.intent.category.LAUNCHER"/>
+                      </intent-filter>
+                  </activity>
+              </application>
+          </manifest>
+          EOF
+
+          cat > app/src/main/java/dz/startlink/wasl/MainActivity.java <<'EOF'
+          package dz.startlink.wasl;
+
+          import android.app.Activity;
+          import android.os.Bundle;
+          import android.webkit.WebView;
+          import android.webkit.WebSettings;
+          import android.webkit.WebViewClient;
+          import android.webkit.WebResourceRequest;
+          import androidx.webkit.WebViewAssetLoader;
+
+          public class MainActivity extends Activity {
+              private WebView webView;
+
+              @Override
+              protected void onCreate(Bundle savedInstanceState) {
+                  super.onCreate(savedInstanceState);
+
+                  webView = new WebView(this);
+                  setContentView(webView);
+
+                  WebSettings settings = webView.getSettings();
+                  settings.setJavaScriptEnabled(true);
+                  settings.setDomStorageEnabled(true);
+
+                  WebViewAssetLoader loader =
+                      new WebViewAssetLoader.Builder()
+                          .addPathHandler("/assets/",
+                              new WebViewAssetLoader.AssetsPathHandler(this))
+                          .build();
+
+                  webView.setWebViewClient(new WebViewClient() {
+                      @Override
+                      public android.webkit.WebResourceResponse
+                      shouldInterceptRequest(WebView view,
+                              WebResourceRequest request) {
+                          return loader.shouldInterceptRequest(request.getUrl());
+                      }
+                  });
+
+                  webView.loadUrl(
+                      "https://appassets.androidplatform.net/assets/www/index.html"
+                  );
+              }
+
+              @Override
+              public void onBackPressed() {
+                  if (webView != null && webView.canGoBack()) {
+                      webView.goBack();
+                  } else {
+                      super.onBackPressed();
+                  }
+              }
+          }
+          EOF
+
+      - name: Build APK
+        run: gradle assembleDebug
+
+      - name: Upload WASL APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: WASL-APK
+          path: app/build/outputs/apk/debug/app-debug.apk
