@@ -160,6 +160,9 @@ jobs:
           }
           EOF
 
+      - name: Enable AndroidX
+        run: echo "android.useAndroidX=true" > gradle.properties
+
       - name: Build APK
         run: gradle assembleDebug
 
